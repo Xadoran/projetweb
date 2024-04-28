@@ -7,7 +7,7 @@ const SignupPage = ({ onLoginClick }) => {
   const [surname, setSurname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [age, setAge] = useState('');
-  const [sex, setSex] = useState(''); // You might use radio buttons or select dropdown for sex
+  const [sex, setSex] = useState("male"); // You might use radio buttons or select dropdown for sex
   const [password, setPassword] = useState('');
 
   const handleSignup = async (e) => {
@@ -64,12 +64,16 @@ const SignupPage = ({ onLoginClick }) => {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Sex"
           value={sex}
           onChange={(e) => setSex(e.target.value)}
-        />
+        /> */}
+
+        <input type="radio" name="gender" value="male" checked={sex === 'male'} onChange={() => setSex("male") } /> Male
+        <input type="radio" name="gender" value="female" checked={sex === 'female'} onChange={() => setSex("female")} /> Female
+        
         <input
           type="password"
           placeholder="Password"
